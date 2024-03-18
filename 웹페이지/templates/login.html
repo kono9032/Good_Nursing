@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>KOBEC | Login Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="static/img/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="static/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/login.css">
+	<script src="static/js/function.js"></script>
+	<script  src="http://code.jquery.com/jquery-latest.min.js?ver=1.1"></script>
+	    <script>
+	        $(document).ready(function(){
+	            if ("{{alarm}}" == "wrong_pw"){
+	                alert("비밀번호가 틀립니다.");
+	                location.href = "/";
+	            }
+	            else if ("{{alarm}}" == "wrong_id"){
+	              alert("등록되지 않은 ID입니다. 회원가입을 진행해주세요.")
+	              location.href = "/";
+	            }
+	        });
+	    </script>
+</head>
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-50 p-b-160">
+				<form class="login100-form validate-form" method="post" action="/login_confirm">
+					<span class="login100-form-title p-b-49">						
+						Patients Imformation Share						
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate = "아이디를 입력하세요">
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="id_" placeholder="Type your username" autocomplete="off">
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="비밀번호를 입력하세요">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="pw_" placeholder="Type your password">
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+
+					<div class="text-right p-t-10 p-b-31">
+						<a href="join">
+							회원가입이 필요하신가요?
+						</a>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" type="submit">
+								로그인
+							</button>
+						</div>
+					</div>
+
+					<div class="txt1 text-center p-t-40 p-b-20">
+						<a href="https://www.konyang.ac.kr/kor/sub03_05_01_01.do">
+						    ※ 건양대학교 의료공과대학 의공학부 학생 작품입니다							
+					    </a>	
+					</div>
+
+					<div class="flex-c-m">
+						<div class="content">
+							<img alt="logo" src="static/img/kobec.png">
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="dropDownSelect1"></div>
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="static/js/main.js"></script>
+
+<div style="visibility: hidden;">{{alarm}}</div>
+</body>
+</html>

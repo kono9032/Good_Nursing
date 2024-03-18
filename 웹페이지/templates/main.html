@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>환자차트</title>
+
+	<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {$("#keyword").keyup(function() {
+			var k = $(this).val();
+			$("#table_body > tbody > tr").hide();
+			var temp = $("#table_body > tbody > tr > td:nth-child(5n+2):contains('" + k + "')");
+			(temp).parent().show();
+		})
+	})
+    </script>
+	<script src="../static/js/function.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+
+<body>
+<div class="limiter">
+	<div class="top_bar">
+		<div class="bar_container">
+			<img src="../static/img/logo2.png">
+			<span id="title"> 환자 차트 모니터링 시스템</span>
+			<div id="logout"><a id="logout" onclick="window.location.href='/logout'"></a></div>
+			<span id="user">{{session['user']}}님</span>
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="input-form"> 이름 : <input type="text" id="keyword" autocomplete="off"></div>
+		<div id="name">{{name}}</div>
+	</div>
+	
+	<div class="onthetable">
+		<table class="top_1">
+			<thead>
+				<tr class="table100-head">
+					<th class="fixhead">RFID</th>
+					<th class="fixhead">이름</th>
+					<th class="fixhead">나이</th>
+					<th class="fixhead">성별</th>
+				</tr>
+			</thead>
+		</table>
+
+		<table class="top_2">
+			<thead>
+				<tr class="table100-head">
+					<th class="column1">측정일시</th>
+					<th class="column2">수축기 혈압</th>
+					<th class="column3">이완기 혈압</th>
+					<th class="column4">심박수</th>
+					<th class="column5">체  온</th>
+				</tr>
+			</thead>
+		</table>	
+	</div>
+
+	<div class="container-table100">
+		<div class="table100_1">
+			<table id="table_body">
+				<tbody>
+					{% for q in list1 %}
+					<tr class="table100-body">
+					<td class="column1"><a href="javascript:;" onclick="roadtable(this);">{{q[0]}}</a></td>
+					<td class="column2">{{q[2]}}</td>
+					<td class="column3">{{q[5]}}</td>
+					<td class="column4">{{q[4]}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+		<div class="table100_2">
+			<table>
+				<tbody>
+					{% for p in list2 %}
+					<tr>
+					<td class="column1">{{p[1]}}</td>
+					<td class="column2">{{p[2]}}</td>
+					<td class="column3">{{p[3]}}</td>
+					<td class="column4">{{p[4]}}</td>
+					<td class="column5">{{p[5]}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</body>
+</html>

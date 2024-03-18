@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>회원가입 페이지</title>
+    <script src="../static/js/function.js"></script>
+    <link rel="stylesheet" href="/static/css/join.css">
+    <!-- 맨 마지막에 CSS 적용할 것 -->
+</head>
+<body>
+    <div class="register">
+        <h3>회원가입</h3>
+        <div class="flex">
+            <ul class="container">
+                <li class="item center">이름</li>
+                <li class="item">
+                    <input type="text" name="name" autocomplete="off" autofocus required>
+                </li>
+                <li class="item"></li>
+            </ul>
+
+            <ul class="container">
+                <li class="item center">아이디</li>
+                <li class="item">
+                    <input type="text" id="id" placeholder="아이디를 입력하세요." autocomplete="off" required>
+                </li>
+            </ul>
+
+            <ul class="container">
+                <li class="item center">비밀번호</li>
+                <li class="item">
+                    <input type="password" id="pw" placeholder="비밀번호를 입력하세요." required>
+                </li>
+            </ul>
+
+            <ul class="container">
+                <li class="item center">비밀번호 확인</li>
+                <li class="item">
+                    <input type="password" id="r_pw" placeholder="비밀번호를 입력하세요." required>
+                </li>
+            </ul>
+
+            <ul class="container">
+                <li class="item center">생년월일</li>
+                <li class="item">
+                    <input type="date" required>
+                </li>
+            </ul>
+
+            <ul class="container">
+                <li class="item center">성별</li>
+                <li class="item">
+                    <select name="gender" id="">
+                        <option value="선택" selected>선택</option>
+                        <option value="남성">남성</option>
+                        <option value="여성">여성</option>
+                    </select>
+                </li>
+            </ul>
+
+            <ul class="container">
+                <li class="item center">전화번호</li>
+                <li class="item">
+                    <input type="text" placeholder="휴대전화번호">
+                </li>
+            </ul>
+
+            <ul class="container">
+                <li class="item center"></li>
+                <li class="item">
+                    <button class="submit" onclick="create_id();">가입하기</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
